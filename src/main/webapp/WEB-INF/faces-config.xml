@@ -21,5 +21,14 @@
 			<from-outcome>increasePercentage</from-outcome>
 			<to-view-id>crear.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>selectData</from-outcome>
+			<to-view-id>/views/select.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>createData</from-outcome>
+			<to-view-id>/views/crear.xhtml</to-view-id>
+		</navigation-case>
+		
 	</navigation-rule>
 </faces-config>

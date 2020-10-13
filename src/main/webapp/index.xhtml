@@ -11,29 +11,12 @@
 <h:body>
  	<h:outputText value="#{msg.heading}"/>
 	<h:outputText value="#{msg.subheading}"/>
-	<h:form prependId="false">
-		<p:messages id="messages" showDetail="true" closable="true">
-        	
-    	</p:messages>
-
-		<p:dataTable id="data" var="item" value="#{productBean.lista}"
-			rowKey="#{item.id}" paginator="true"
-			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-			rowsPerPageTemplate="5,10,15"
-			emptyMessage="No hay productos disponibles">
-
-			<p:column headerText="Nombre">
-				<h:outputText value="#{item.description}" />
-			</p:column>
-
-			<p:column headerText="Cargo">
-				<h:outputText value="#{item.price}" />
-			</p:column>
-
-		</p:dataTable>
-		<h:button outcome="increasePercentage" value="Incrementar Porcentage"/>
-
+	<h:form rendered="#{facesContext.externalContext.isUserInRole('ROLE_ADMIN')}">
+		<h:button outcome="selectData" value="Consultar"/>
+		<h:button outcome="createData" value="Crear"/>
+	</h:form>
+	<h:form rendered="#{facesContext.externalContext.isUserInRole('ROLE_USER')}">
+		<h:button outcome="selectData" value="Consultar"/>
 	</h:form>
 </h:body>
 
