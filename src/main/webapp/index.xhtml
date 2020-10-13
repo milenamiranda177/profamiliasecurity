@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title><h:outputText value="#{msg.title}"/></title>
+</h:head>
+
+
+<h:body>
+ 	<h:outputText value="#{msg.heading}"/>
+	<h:outputText value="#{msg.subheading}"/>
+	<h:form prependId="false">
+		<p:messages id="messages" showDetail="true" closable="true">
+        	
+    	</p:messages>
+
+		<p:dataTable id="data" var="item" value="#{productBean.lista}"
+			rowKey="#{item.id}" paginator="true"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+			rowsPerPageTemplate="5,10,15"
+			emptyMessage="No hay productos disponibles">
+
+			<p:column headerText="Nombre">
+				<h:outputText value="#{item.description}" />
+			</p:column>
+
+			<p:column headerText="Cargo">
+				<h:outputText value="#{item.price}" />
+			</p:column>
+
+		</p:dataTable>
+		<h:button outcome="increasePercentage" value="Incrementar Porcentage"/>
+
+	</h:form>
+</h:body>
+
+
+</html>

@@ -1,0 +1,17 @@
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/service/UserService.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/filter/MyUserDetailsService.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/service/IUserService.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/filter/MyAuthenticationProvider.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/repository/ProductDao.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/controller/InventoryController.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/domain/PseudoDao.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/repository/JPAUserDao.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/bean/ProductBean.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/service/PriceIncrease.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/repository/UserDao.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/domain/Product.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/service/ProductManager.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/domain/UserRole.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/service/SimpleProductManager.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/domain/UserMaster.java
+/home/mmiranda/eclipse-workspace2/profamiliasecurity/src/main/java/com/mvcprime/repository/JPAProductDao.java
