@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 
 
 @Entity
@@ -21,18 +23,23 @@ public class UserRole implements Serializable {
 
 	 private static final long serialVersionUID = 1L;
 
-	    @Id
-	    @Column(name = "user_role_id")
-	    @GeneratedValue(strategy = GenerationType.AUTO)
+		@Id
+		@GeneratedValue(strategy= GenerationType.IDENTITY)
+		@GenericGenerator(name = "native",strategy = "native")
+		@Column(name = "user_role_id")
 	    private Integer id;
-	    @Column(name = "authority")
-	    private String authority;
+		
+		@Column(name = "authority")
+		private String authority;
+		
 	    
 	    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	    @JoinColumn(name = "user_id")
 	    private UserMaster userId;
 	    
-	    public Integer getId()
+	    
+
+		public Integer getId()
 	    {
 	        return id;
 	    }
@@ -49,20 +56,15 @@ public class UserRole implements Serializable {
 		public void setUserId(UserMaster userId) {
 			this.userId = userId;
 		}
-
+		
 		public String getAuthority() {
-			return authority;
+	        return authority;
 		}
-
+	
 		public void setAuthority(String authority) {
-			this.authority = authority;
+		        this.authority = authority;
 		}
-		
-		
 
-	public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("Authority: " + authority);
-        return buffer.toString();
-    }
+
+
 }

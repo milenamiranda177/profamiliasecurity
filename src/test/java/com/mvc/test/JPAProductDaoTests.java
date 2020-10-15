@@ -1,7 +1,10 @@
 package com.mvc.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.junit.Before;
@@ -9,40 +12,45 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mvcprime.domain.Product;
-import com.mvcprime.repository.ProductDao;
+import com.mvcprime.domain.UserMaster;
+import com.mvcprime.domain.UserRole;
+import com.mvcprime.repository.UserDao;
 
 public class JPAProductDaoTests {
 
     private ApplicationContext context;
-    private ProductDao productDao;
+    private UserDao userDao;
 
     @Before
     public void setUp() throws Exception {
         context = new ClassPathXmlApplicationContext("classpath:test-context.xml");
-        productDao = (ProductDao) context.getBean("productDao");
+        userDao = (UserDao) context.getBean("userDao");
     }
 
     @Test
     public void testGetProductList() {
-        List<Product> products = productDao.getProductList();
-        assertEquals(products.size(), 3, 0);	   
+        List<UserMaster> products = userDao.getUserList();
+        assertNotNull(products);	   
     }
 
     @Test
-    public void testSaveProduct() {
-        List<Product> products = productDao.getProductList();
+    public void testSaveUser() throws NoSuchAlgorithmException {
+    	List<UserMaster> user = userDao.getUserList();
+    	Integer countBefore = user.size();
+    	
+        UserMaster p = new UserMaster();
+        p.setId(300);
+        p.setLogin("PEDRO");
+        p.setEnabled(1);
+        p.setPassword("12345");
+        p.setFullname("PEDRO EL ESCAMOSO");
+        
+        p.addAuthorities("ROLE_USER");
+        
+        userDao.saveUser(p);
 
-        Product p = products.get(0);
-        Double price = p.getPrice();
-        p.setPrice(200.12);
-        productDao.saveProduct(p);
-
-        List<Product> updatedProducts = productDao.getProductList();
-        Product p2 = updatedProducts.get(0);
-        assertEquals(p2.getPrice(), 200.12, 0);
-
-        p2.setPrice(price);
-        productDao.saveProduct(p2);
+        user = userDao.getUserList();
+        Integer countAfter = user.size();
+        assertNotSame(countBefore, countAfter);
     }
 }

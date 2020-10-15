@@ -2,21 +2,43 @@ package com.mvcprime.domain;
 
 import java.util.List;
 
-import com.mvcprime.repository.ProductDao;
+import org.springframework.security.core.userdetails.User;
 
-public class PseudoDao implements ProductDao {
+import com.mvcprime.repository.UserDao;
 
-    private List<Product> productList;
+public class PseudoDao implements UserDao {
 
-    public PseudoDao(List<Product> productList) {
-        this.productList = productList;
+    private List<UserMaster> userList;
+
+    public PseudoDao(List<UserMaster> userList) {
+        this.userList = userList;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<UserMaster> getUserList() {
+        return userList;
     }
 
-    public void saveProduct(Product prod) {
-    }
+	@Override
+	public void saveUser(UserMaster user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User verifyLogin(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Role> getRoles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+
 
 }

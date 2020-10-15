@@ -7,7 +7,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mvcprime.domain.Role;
 import com.mvcprime.domain.UserMaster;
+import com.mvcprime.domain.UserRole;
+
 import org.springframework.security.core.userdetails.User;
 import com.mvcprime.repository.UserDao;
 
@@ -39,6 +42,11 @@ public class UserService implements IUserService {
 	@Override
 	public User verifyLogin(String login) {
 		return userDao.verifyLogin(login);
+	}
+	
+	@Override
+	public List<Role> getRoles() {
+		return userDao.getRoles();
 	}
     
     
